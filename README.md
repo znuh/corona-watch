@@ -10,7 +10,7 @@ monitoring the german corona-warn-app server data
 example:
 ```
 > lua app_config.lua 
-> cat app_config/export.txt.1592344486 
+> cat app_config/1592344486.txt
     appVersion.android.latest.major= 0
     appVersion.android.latest.minor= 8
     appVersion.android.latest.patch= 3
