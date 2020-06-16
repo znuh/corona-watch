@@ -8,22 +8,22 @@ require "utils"
 function load_last_appconfig()
 	local ts = load_file("app_config/last_update")
 	if not ts then return end
-	return load_file("app_config/export.bin."..ts), ts
+	return load_file("app_config/"..ts..".bin"), ts
 end
 
 function save_appconfig(now, config)
 	-- save binary config
 	lfs.mkdir("app_config")
-	os.execute("mv tmp/export.bin app_config/export.bin."..now)
+	os.execute("mv tmp/export.bin app_config/"..now..".bin")
 
 	-- update last timestamp
 	save_file("app_config/last_update", now)
 
 	-- save text config
-	save_file("app_config/export.txt."..now, table_tostring(config))
+	save_file("app_config/"..now..".txt", table_tostring(config))
 	
 	-- save json config
-	save_file("app_config/export.json."..now, cjson.encode(config))
+	save_file("app_config/"..now.."json", cjson.encode(config))
 end
 
 function update_appconfig()
@@ -49,7 +49,7 @@ function update_appconfig()
 		
 		if last_ts then
 			-- show diff if previous config available
-			os.execute("diff app_config/export.txt."..last_ts.." app_config/export.txt."..now)
+			os.execute("diff app_config/"..last_ts..".txt app_config/"..now..".txt")
 		end
 	end
 	
