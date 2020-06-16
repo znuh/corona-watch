@@ -1,3 +1,6 @@
 [submodule "cwa-app-android"]
 	path = cwa-app-android
 	url = https://github.com/corona-warn-app/cwa-app-android.git
+[submodule "cwa-server"]
+	path = cwa-server
+	url = https://github.com/corona-warn-app/cwa-server
