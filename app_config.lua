@@ -23,7 +23,7 @@ function save_appconfig(now, config)
 	save_file("app_config/"..now..".txt", table_tostring(config))
 	
 	-- save json config
-	save_file("app_config/"..now.."json", cjson.encode(config))
+	save_file("app_config/"..now..".json", cjson.encode(config))
 end
 
 function update_appconfig()
