@@ -1,0 +1,36 @@
+clone https://github.com/oseiskar/corona-sniffer
+in the linux/ directory run ./ble_scan.py | grep contact_tracing
+
+example:
+{"contact_tracing": {"apple_google_en": {"rpi": "123f6003061f8d831fa2098337960b98", "aem": "4906f607"}}, "mac": "d1c65eaf4647", "type": "ADV_SCAN_IND", "rssi": -62, "mac_type": "Random"}
+{"contact_tracing": {"apple_google_en": {"rpi": "123f6003061f8d831fa2098337960b98", "aem": "4906f607"}}, "mac": "d1c65eaf4647", "type": "ADV_SCAN_IND", "rssi": -65, "mac_type": "Random"}
+{"contact_tracing": {"apple_google_en": {"rpi": "123f6003061f8d831fa2098337960b98", "aem": "4906f607"}}, "mac": "d1c65eaf4647", "type": "ADV_SCAN_IND", "rssi": -66, "mac_type": "Random"}
+{"contact_tracing": {"apple_google_en": {"rpi": "123f6003061f8d831fa2098337960b98", "aem": "4906f607"}}, "mac": "d1c65eaf4647", "type": "ADV_SCAN_IND", "rssi": -63, "mac_type": "Random"}
+
+wireshark on bluetooth0 can be used to see the full frames - example:
+Frame 4998: 43 bytes on wire (344 bits), 43 bytes captured (344 bits) on interface bluetooth0, id 0
+Bluetooth
+Bluetooth HCI H4
+    [Direction: Rcvd (0x01)]
+    HCI Packet Type: HCI Event (0x04)
+Bluetooth HCI Event - LE Meta
+    Event Code: LE Meta (0x3e)
+    Parameter Total Length: 40
+    Sub Event: LE Advertising Report (0x02)
+    Num Reports: 1
+    Event Type: Scannable Undirected Advertising (0x02)
+    Peer Address Type: Random Device Address (0x01)
+    BD_ADDR: 47:46:af:5e:c6:d1 (47:46:af:5e:c6:d1)
+    Data Length: 28
+    Advertising Data
+        16-bit Service Class UUIDs
+            Length: 3
+            Type: 16-bit Service Class UUIDs (0x03)
+            UUID 16: Unknown (0xfd6f)
+        Service Data - 16 bit UUID
+            Length: 23
+            Type: Service Data - 16 bit UUID (0x16)
+            UUID 16: Unknown (0xfd6f)
+            Service Data: 123f6003061f8d831fa2098337960b984906f607
+    RSSI: -62dBm
+ 
