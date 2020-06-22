@@ -82,4 +82,6 @@ function load_keys()
 	end -- dates
 end
 
+print(os.date().." ("..os.time()..")")
+
 load_keys()
