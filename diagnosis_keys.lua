@@ -49,15 +49,17 @@ function load_keyfile(rel_path)
 end
 
 function load_keys()
-	local dates_path = "/date"
+
 	-- fetch list of dates first
+	local dates_path = "/date"
 	local dates = fetch_list(dates_path)
-	dump_table(dates)
+	--dump_table(dates)
 	
 	-- iterate through dates
 	for _,day in pairs(dates) do
-		local date_path = dates_path.."/"..day
+		
 		-- fetch keyfile for day
+		local date_path = dates_path.."/"..day
 		local daykeys = load_keyfile(date_path)
 		print(date_path..":")
 		dump_table(daykeys)
@@ -65,17 +67,19 @@ function load_keys()
 		-- fetch hours list for day
 		local hours_path = date_path.."/hour"
 		local hours = fetch_list(hours_path)
-		dump_table(hours)
+		--dump_table(hours)
+		
 		-- iterate through hours
 		for _,hour in pairs(hours) do
-			local hour_path = hours_path.."/"..hour
+		
 			-- fetch keyfile for hour
+			local hour_path = hours_path.."/"..hour
 			local hour_keys = load_keyfile(hour_path)
 			print(hour_path..":")
 			dump_table(hour_keys)
-		end
+		end -- hours
 		
-	end
+	end -- dates
 end
 
 load_keys()
