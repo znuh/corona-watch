@@ -1,4 +1,4 @@
-#!/bin/lua
+#!/usr/bin/lua
 
 local https = require 'ssl.https'
 local lfs = require "lfs"
